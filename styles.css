@@ -58,6 +58,63 @@ cursor: pointer;
 .banner-img{
     width: 100%;
 }
+main{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.teams-container{
+    display: flex;
+    align-items: center;
+}
+.teams-img-container{
+    /* margin-top: 20px; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+.teams-content{
+    padding: 0 70px;
+    
+}
+.teams-title{
+    font-size: 45px;
+}
+.quick-list{
+    color:#727272;
+font-size: 45px;
+font-weight: 500;
+}
+.of-our{
+    color: #131313;
+font-size: 45px;
+font-weight: 700;
+}
+.features{
+    color: #FF900E;
+font-size: 45px;
+font-weight: 700;
+}
+.teams-description{
+font-size: 16px;
+font-weight: 400;
+line-height: 26px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width:576px){
     header{

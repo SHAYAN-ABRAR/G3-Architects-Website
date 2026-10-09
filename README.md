@@ -1,76 +1,103 @@
 # G3 Architects
 
-A landing page for a fictional architecture studio, written in plain HTML and CSS with phone and tablet breakpoints.
+**Good spaces. Better living.**
 
-**Live site:** <https://shayan-abrar.github.io/G3-Architects-Website/>
+A responsive architecture concept portfolio by [Shayan Abrar](https://github.com/SHAYAN-ABRAR). Reimagined with an editorial layout, five original AI-generated architectural visuals and useful interactions built in plain HTML, CSS and JavaScript.
 
-<p align="center">
-  <img src="screenshots/tour.gif" width="800" alt="Animated tour through the hero, the team photo grid, the features section with the 10+ years badge, and the facts and sponsors sections">
-</p>
+[Live site](https://shayan-abrar.github.io/G3-Architects-Website/) · [Repository](https://github.com/SHAYAN-ABRAR/G3-Architects-Website)
 
-<table>
-  <tr>
-    <td align="center" width="25%"><a href="screenshots/preview.png"><img src="screenshots/preview.png" width="190" alt="Hero with the headline Brand New Group of Architects, an Explore more button and a team photo"></a><br><sub><b>Hero</b></sub></td>
-    <td align="center" width="25%"><a href="screenshots/team.jpg"><img src="screenshots/team.jpg" width="190" alt="Two-by-two grid of team photos next to the Quick list of Our Features heading"></a><br><sub><b>Team grid</b></sub></td>
-    <td align="center" width="25%"><a href="screenshots/features.jpg"><img src="screenshots/features.jpg" width="190" alt="Features you will love and enjoy, with feature cards beside an architect photo"></a><br><sub><b>Features</b></sub></td>
-    <td align="center" width="25%"><a href="screenshots/facts-sponsors.jpg"><img src="screenshots/facts-sponsors.jpg" width="190" alt="Some Facts counters for awards, projects, clients and emails above a row of sponsor logos"></a><br><sub><b>Facts and sponsors</b></sub></td>
-  </tr>
-</table>
+The live site reflects the redesign after this branch is merged and GitHub Pages completes its deployment.
 
-A studio's landing page needs a strong first impression, a sense of the people behind it, and a few trust signals such as experience, numbers and well-known clients. This page lays those out with Flexbox, CSS Grid and two media queries, with no framework, so the layout code is short and easy to follow.
+![G3 Architects desktop redesign](screenshots/redesign-desktop.webp)
 
-## Quick Start
+## The experience
 
-```bash
-git clone https://github.com/SHAYAN-ABRAR/G3-Architects-Website.git
-cd G3-Architects-Website
-python3 -m http.server 8000
+- An asymmetric project gallery with category filters and a compact index view.
+- Four detailed design studies, each with an original visual, design intent and material palette.
+- A saved-inspiration collection that persists locally in the visitor's browser.
+- A three-step project brief with field validation, up to three priorities, editable notes, draft recovery and a UTF-8 text download.
+- A responsive approach accordion that changes both the story and its photograph.
+- A mobile menu, keyboard-operable native dialogs, focus management and reduced-motion support.
+
+The practice and projects are fictional concepts. AI imagery is disclosed in the portfolio and project details. There are no invented awards, client endorsements or completed-project claims. The brief is a local planning aid: it does not send enquiries or contact details anywhere. No backend, analytics, external runtime libraries or AI API calls are connected.
+
+## Preview locally
+
+Open `index.html` directly in a modern browser. No build step or package installation is required.
+
+For an optional local HTTP preview with Python installed:
+
+```powershell
+Set-Location -LiteralPath "C:\path\to\G3-Architects-Website"
+python -m http.server 8080
 ```
 
-Open <http://localhost:8000>. On Windows, use `python` instead of `python3`. Opening `index.html` directly in a browser works too. The Work Sans font loads from Google Fonts, so you need an internet connection for the intended typography.
+Then open <http://localhost:8080>. Stop the server with Ctrl+C.
 
-## Features
+## Files
 
-- **Hero:** navigation bar, the headline "Brand New Group of Architects", an **Explore more** button and a wide team photo.
-- **Team grid:** four photos in a two-by-two CSS Grid next to a "Quick list of Our Features" block.
-- **Features:** four feature cards beside an architect photo with an overlapping "10+ Year Experience" badge.
-- **Some Facts:** counters for 54 awards, 1,458 projects, 590 clients and 22,578 emails sent.
-- **Sponsors:** a row of partner logos.
-- **Breakpoints:** below 992px the navigation, team section and fact cards stack vertically. Below 576px the team grid becomes a single column, the sponsor logos stack and the hero text shrinks.
+| File or folder | Purpose |
+| --- | --- |
+| `index.html` | Accessible page content, inline icon symbols and dialogs |
+| `styles.css` | Design system, responsive layouts and reduced-motion styles |
+| `script.js` | Project data, gallery controls, dialogs, saved inspiration and brief builder |
+| `assets/images/` | Responsive WebP exports, image provenance and exact prompts |
+| `assets/fonts/` | Self-hosted Manrope font subset and its license |
+| `assets/favicon.svg` | G3 browser icon |
+| `screenshots/redesign-*.webp` | Current desktop and mobile screenshots |
+| `images/` and older screenshots | Original repository assets retained for reference |
+| `.nojekyll` | Static GitHub Pages delivery |
+| `.gitattributes` | Predictable text line endings |
 
-## Customizing
+There are no absolute-root asset paths, so the project works at the GitHub Pages repository subpath as well as at a domain root.
 
-The layout breakpoints live at the end of `styles.css`. This is the phone rule that turns the team grid into one column:
+## Make it yours
 
-```css
-@media screen and (max-width:576px) {
-    .teams-img-container {
-        grid-template-columns: 1fr;
-    }
-}
-```
+Edit the project copy in `index.html` and the matching project data in `script.js`. Keep the four project IDs consistent between the two files. Replace the image exports in `assets/images/` and update their `srcset` dimensions if the replacements differ.
 
-## Limitations
+The main colour and spacing tokens are at the top of `styles.css`. The Manrope font is served locally. SVG icons are defined as symbols near the top of `index.html`.
 
-- The features section doesn't stack on smaller screens, so the page scrolls sideways on screens narrower than about 1,050px.
-- The body copy is placeholder (lorem ipsum) text, and the navigation links and buttons don't go anywhere.
-- The footer element is empty.
+Saved inspiration uses `g3-saved-v1`; brief drafts use `g3-brief-v1` in local storage. The app validates saved data before restoring it and continues in memory if the browser blocks storage. "Clear draft" removes the current brief fields while retaining saved inspiration. No cookies are set.
 
-## Tech Stack
+## Publish with the included Windows helper
 
-- HTML5
-- CSS3 (Flexbox, CSS Grid and media queries) in `styles.css`
-- Google Fonts: Work Sans
-- Hosted on GitHub Pages
+The ZIP contains `Publish-G3-Redesign.ps1` and `START-HERE.txt` next to the project folder. The helper is written for Windows PowerShell 5.1 and newer and does not use `&&`.
 
-## Contributing
+1. Save `G3-Architects-Redesign.zip` to Downloads.
+2. Run the four lines in `START-HERE.txt`.
+3. Review and merge the pull request opened by the helper.
+4. Check the Pages deployment in the repository's Actions tab.
 
-Suggestions and bug reports are welcome. Please [open an issue](https://github.com/SHAYAN-ABRAR/G3-Architects-Website/issues). Please read the license note below before reusing any code or images.
+The script uses a fresh timestamped review folder and a new `design/g3-architecture-...` branch. It verifies the prepared base, copies the redesign, runs both unstaged and staged Git whitespace checks, and commits/pushes only when `-Push` is supplied. It does not modify existing local clones, force-push or push to main. If the base has changed, it stops before copying files.
 
-## License
+Prepared from `main` at `439e057a812314726db2d63ea68ba9894cee6b5b`.
 
-This repository doesn't have a license yet, so it doesn't grant anyone permission to reuse or redistribute its code or images. Please ask before reusing any part of it. The sponsor logos are trademarks of their owners.
+For a simple branch deployment, configure **Settings → Pages → Deploy from a branch → main → / (root)**. If an existing custom Pages workflow is in use, keep its setup and check its run after merging. See the [official GitHub Pages documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
----
+## Validation
 
-Built by **Shayan Abrar** · [GitHub](https://github.com/SHAYAN-ABRAR) · [LinkedIn](https://www.linkedin.com/in/shayan-abrar/)
+Checked on 7 October 2026 with Chromium through Playwright:
+
+- Asset loading under `/G3-Architects-Website/` and direct `file://` preview.
+- Four filters, both gallery views, every project dialog and next-project cycling.
+- Modal keyboard focus, Escape dismissal and mobile navigation.
+- Saved projects, removal and empty state, persistence after reload.
+- Required fields, blank-location rejection, area limits and three-priority limit.
+- Brief back/edit, draft recovery, reset and actual text download contents.
+- User notes rendered as text rather than HTML.
+- Malformed stored data and blocked local storage.
+- Reduced motion and readable core content with JavaScript disabled.
+- Horizontal overflow at 320, 360, 390, 620, 768, 1024, 1440 and 1920 pixels.
+- No JavaScript errors or missing page assets during these flows.
+
+The final package also passes real Git whitespace checks, before and after staging, with `core.autocrlf` both off and on. The ZIP is checked for integrity and contains no Git metadata or testing dependencies.
+
+The publishing script has been reviewed for PowerShell 5.1 compatibility; it has not been executed on Windows in this environment. Remote push, pull-request merge and GitHub Pages deployment are left to the repository owner. Other browser engines and assistive technologies have not been exhaustively tested.
+
+## Images and font
+
+Five images were created specifically for this redesign using the built-in image-generation tool: Courtyard House, Quiet Form, Canopy Pavilion, Brick & Light, and the studio model photograph. They depict fictional architectural concepts, not documented buildings. See [image provenance](assets/images/README.md) and [exact prompts](assets/images/prompts.json).
+
+Manrope was sourced from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/manrope), subset for this site's Latin text, and bundled under the [SIL Open Font License](assets/fonts/OFL-Manrope.txt).
+
+The original repository did not specify a project license; this redesign does not add one. Original assets remain subject to their existing ownership and terms.
